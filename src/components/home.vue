@@ -205,7 +205,7 @@ export default {
         },
         close(value) {
             this.is_login = value
-            document.body.style.overflow = 'auto'
+            document.body.style.overflowY = 'auto'
         },
         auth(array) {
             if (array != null) {
