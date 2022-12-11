@@ -1,19 +1,19 @@
 <template>
-    <div class="wrapper">
-        <home_page></home_page>
-    </div>
+	<div class="wrapper">
+		<home_page></home_page>
+	</div>
 </template>
 <script>
 import home_page from '@/components/home.vue'
 export default {
-    name: "App",
-    components: {
-        home_page
-    }
+	name: "App",
+	components: {
+		home_page
+	}
 }
-</script>
-<style lang="scss">
+</script><style lang="scss">
 $_color: rgb(255, 255, 255);
+$main_color: #d9730d;
 *{
     text-shadow: 1px 10px 6px #000;
 }
@@ -49,7 +49,6 @@ footer {
     margin: 0 auto;
     overflow-x: hidden;
 }
-
 .block {
     min-height: 100vh;
     overflow-x: hidden;
@@ -60,7 +59,6 @@ footer {
 .triple {
     min-height: 300vh;
 }
-
 .town {
     background: url('@/style/image/town.jpg') center fixed;
     background-size: cover;

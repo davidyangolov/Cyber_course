@@ -120,7 +120,8 @@
             </div>
            
          </div>
-         <courses_block v-show="is_courses"></courses_block>  
+         <courses_block v-show="is_courses"></courses_block>
+         <contact_block v-show="is_contact"></contact_block>  
         <!--  home page  --> 
         </main>
     
@@ -155,13 +156,14 @@
 
 import courses_block from '@/components/courses.vue'
 import modal_regis_authorization from '@/components/modal.vue'
+import contact_block from '@/components/contact.vue'
 export default {
     name: "home_page",
     data: () => ({
         is_contact: false,
-        is_courses: false,
+        is_courses: true,
         is_news: false,
-        is_home: true,
+        is_home: false,
         is_login: false,
         is_auth: false,
         is_guest: true,
@@ -169,6 +171,7 @@ export default {
     }),
     components: {
         courses_block,
+        contact_block,
         modal_regis_authorization
     },
     methods: {

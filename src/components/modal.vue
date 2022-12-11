@@ -1,7 +1,7 @@
 <template>
 	<div class="modal__body center">
 		<div class="forms">
-			<form @submit.prevent="auth" class="form_body auth"  :class="{visible: is_auth}">
+			<form @submit.prevent="auth" class="form_body auth"  :class="{visible: !is_active}">
 			<div class="title__form">Авторизация</div>
 			<div class="close" @click="close"></div>
 			<div class="error">{{error}}</div>
@@ -20,7 +20,7 @@
 				<input type="submit" class="btn" value="Войти">
 			</div>
 		</form>
-		<form @submit.prevent="regis" class="form_body regis" :class="{visible: is_regis}">
+		<form @submit.prevent="regis" class="form_body regis" :class="{visible: is_active}">
 			<div class="title__form">Регистрация</div>
 			<div class="close" @click="close"></div>
 			<div class="error">{{error}}</div>
@@ -52,8 +52,7 @@ export default {
     name: "modal_regis_authorization",
 	data() {
 		return {
-			is_auth: true,
-			is_regis:false,
+			is_active: false,
 			error: '',
 			login: '',
 			password: '',
@@ -65,8 +64,7 @@ export default {
 			this.$emit('close', false)
 		},
 		toggle() {
-			this.is_auth = !this.is_auth
-			this.is_regis = !this.is_regis
+			this.is_active = !this.is_active
 		},
 		async auth() {
 			const {data} = await axios.get('http://localhost/basic/web/index.php/api/get-users?login='+this.login)
@@ -164,7 +162,7 @@ input {
 	z-index: 3;
 }
 .row {
-	min-width: 100%;
+	max-width: 100%;
 	margin: 25px auto;
 	margin-top: 0;
 	padding: 15px 0;
